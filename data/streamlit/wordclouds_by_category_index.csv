@@ -1,0 +1,10 @@
+category,path
+Política y Economía,data/streamlit\wordclouds_by_category_lematizado\wordcloud_politica-y-economia.png
+Culturas,data/streamlit\wordclouds_by_category_lematizado\wordcloud_culturas.png
+Políticas de géneros,data/streamlit\wordclouds_by_category_lematizado\wordcloud_politicas-de-generos.png
+Otras,data/streamlit\wordclouds_by_category_lematizado\wordcloud_otras.png
+Salud,data/streamlit\wordclouds_by_category_lematizado\wordcloud_salud.png
+Ambiente,data/streamlit\wordclouds_by_category_lematizado\wordcloud_ambiente.png
+Tecnologías,data/streamlit\wordclouds_by_category_lematizado\wordcloud_tecnologias.png
+Educación,data/streamlit\wordclouds_by_category_lematizado\wordcloud_educacion.png
+Amor y sexo,data/streamlit\wordclouds_by_category_lematizado\wordcloud_amor-y-sexo.png

@@ -1,0 +1,129 @@
+category,period,documents,tokens_after_stopwords,unique_terms_after_stopwords,docs_ok,tokens_ok,unique_terms_ok,enough_statistics,path
+Ambiente,2012,1,914,633,False,False,True,False,
+Ambiente,2013,1,1417,927,False,False,True,False,
+Ambiente,2014,1,1302,793,False,False,True,False,
+Ambiente,2015,7,6032,3112,False,True,True,False,
+Ambiente,2016,2,2080,1196,False,False,True,False,
+Ambiente,2017,3,2164,1369,False,False,True,False,
+Ambiente,2018,5,5286,2684,False,True,True,False,
+Ambiente,2019,5,5523,2764,False,True,True,False,
+Ambiente,2020,23,21082,6624,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_ambiente_2020.png
+Ambiente,2021,22,20996,6622,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_ambiente_2021.png
+Ambiente,2022,10,11154,3963,False,True,True,False,
+Ambiente,2023,9,9250,4080,False,True,True,False,
+Ambiente,2024,9,9810,4221,False,True,True,False,
+Ambiente,2025,11,12644,4928,False,True,True,False,
+Ambiente,2026,4,4598,2181,False,False,True,False,
+Amor y sexo,2012,1,1019,615,False,False,True,False,
+Amor y sexo,2013,2,3288,1727,False,False,True,False,
+Amor y sexo,2014,1,1483,897,False,False,True,False,
+Amor y sexo,2015,7,7678,3816,False,True,True,False,
+Amor y sexo,2016,1,1236,853,False,False,True,False,
+Amor y sexo,2017,4,3344,2071,False,False,True,False,
+Amor y sexo,2018,7,4795,2788,False,False,True,False,
+Amor y sexo,2019,8,8710,4086,False,True,True,False,
+Amor y sexo,2020,6,3942,2354,False,False,True,False,
+Amor y sexo,2021,9,6660,3370,False,True,True,False,
+Amor y sexo,2022,4,4172,2280,False,False,True,False,
+Amor y sexo,2023,2,2103,1322,False,False,True,False,
+Amor y sexo,2024,4,4673,2589,False,False,True,False,
+Amor y sexo,2025,1,770,557,False,False,True,False,
+Amor y sexo,2026,2,2372,1279,False,False,True,False,
+Culturas,2012,9,9644,4148,False,True,True,False,
+Culturas,2013,23,29826,9075,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2013.png
+Culturas,2014,128,94916,18751,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2014.png
+Culturas,2015,97,86336,17979,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2015.png
+Culturas,2016,132,153927,24971,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2016.png
+Culturas,2017,89,87035,17612,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2017.png
+Culturas,2018,102,91549,18370,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2018.png
+Culturas,2019,48,47173,13515,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2019.png
+Culturas,2020,39,34705,10422,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2020.png
+Culturas,2021,68,56341,13849,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2021.png
+Culturas,2022,71,55681,13789,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2022.png
+Culturas,2023,85,79316,17203,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2023.png
+Culturas,2024,76,72131,15883,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2024.png
+Culturas,2025,45,48267,12256,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2025.png
+Culturas,2026,26,26316,8334,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_culturas_2026.png
+Educación,2013,1,1134,691,False,False,True,False,
+Educación,2014,3,2341,1262,False,False,True,False,
+Educación,2015,5,5046,2582,False,True,True,False,
+Educación,2016,8,9347,4039,False,True,True,False,
+Educación,2017,9,7373,3272,False,True,True,False,
+Educación,2018,12,8517,3213,False,True,True,False,
+Educación,2019,5,4366,2191,False,False,True,False,
+Educación,2020,7,6338,2760,False,True,True,False,
+Educación,2021,7,6095,2662,False,True,True,False,
+Educación,2022,4,3326,1687,False,False,True,False,
+Educación,2023,6,4678,2354,False,False,True,False,
+Educación,2024,11,11684,4310,False,True,True,False,
+Educación,2025,5,4786,2220,False,False,True,False,
+Educación,2026,7,7353,3104,False,True,True,False,
+Otras,2012,1,1011,666,False,False,True,False,
+Otras,2014,15,6858,3454,False,True,True,False,
+Otras,2015,38,10986,4991,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_otras_2015.png
+Otras,2016,15,9148,4063,False,True,True,False,
+Otras,2017,53,32848,8504,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_otras_2017.png
+Otras,2018,10,6205,2968,False,True,True,False,
+Otras,2023,13,11330,4096,False,True,True,False,
+Otras,2024,3,1608,1085,False,False,True,False,
+Otras,2025,12,16482,5424,False,True,True,False,
+Otras,2026,5,6575,3052,False,True,True,False,
+Política y Economía,2012,13,17699,6273,False,True,True,False,
+Política y Economía,2013,8,13304,5316,False,True,True,False,
+Política y Economía,2014,51,55748,12867,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2014.png
+Política y Economía,2015,109,113185,18247,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2015.png
+Política y Economía,2016,120,135531,19763,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2016.png
+Política y Economía,2017,95,97576,15403,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2017.png
+Política y Economía,2018,96,90067,15846,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2018.png
+Política y Economía,2019,129,124322,18597,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2019.png
+Política y Economía,2020,101,92391,16025,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2020.png
+Política y Economía,2021,114,99675,16481,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2021.png
+Política y Economía,2022,119,102722,16852,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2022.png
+Política y Economía,2023,139,137364,20113,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2023.png
+Política y Economía,2024,146,147196,20252,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2024.png
+Política y Economía,2025,122,127551,18783,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2025.png
+Política y Economía,2026,63,66421,13115,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politica-y-economia_2026.png
+Políticas de géneros,2012,3,2832,1788,False,False,True,False,
+Políticas de géneros,2013,8,9479,3954,False,True,True,False,
+Políticas de géneros,2014,25,26271,7963,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2014.png
+Políticas de géneros,2015,47,42797,11081,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2015.png
+Políticas de géneros,2016,62,57756,13026,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2016.png
+Políticas de géneros,2017,79,73559,14970,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2017.png
+Políticas de géneros,2018,113,91732,15701,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2018.png
+Políticas de géneros,2019,46,48110,11201,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2019.png
+Políticas de géneros,2020,30,27193,7967,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2020.png
+Políticas de géneros,2021,31,26892,8099,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2021.png
+Políticas de géneros,2022,21,18262,5999,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2022.png
+Políticas de géneros,2023,19,18180,6585,False,True,True,False,
+Políticas de géneros,2024,20,16034,5738,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2024.png
+Políticas de géneros,2025,24,24326,7359,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_politicas-de-generos_2025.png
+Políticas de géneros,2026,11,10730,4458,False,True,True,False,
+Salud,2013,2,2449,1358,False,False,True,False,
+Salud,2014,9,7888,3499,False,True,True,False,
+Salud,2015,3,3374,1841,False,False,True,False,
+Salud,2016,6,8512,3779,False,True,True,False,
+Salud,2017,4,3868,2080,False,False,True,False,
+Salud,2018,6,5117,2562,False,True,True,False,
+Salud,2019,4,3302,1716,False,False,True,False,
+Salud,2020,39,35102,9689,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_salud_2020.png
+Salud,2021,20,18528,6415,True,True,True,True,data\processed\topic_modeling_lematizado\wordclouds_by_category_period\wordcloud_salud_2021.png
+Salud,2022,8,9041,4034,False,True,True,False,
+Salud,2023,9,9330,3954,False,True,True,False,
+Salud,2024,5,5070,2771,False,True,True,False,
+Salud,2025,7,9583,3810,False,True,True,False,
+Salud,2026,4,4757,2407,False,False,True,False,
+Tecnologías,2012,1,1700,940,False,False,True,False,
+Tecnologías,2013,2,2622,1445,False,False,True,False,
+Tecnologías,2014,2,3029,1679,False,False,True,False,
+Tecnologías,2015,5,4925,2297,False,False,True,False,
+Tecnologías,2016,6,6082,2618,False,True,True,False,
+Tecnologías,2017,14,12361,4490,False,True,True,False,
+Tecnologías,2018,18,16774,5979,False,True,True,False,
+Tecnologías,2019,9,5320,2638,False,True,True,False,
+Tecnologías,2020,12,9002,3770,False,True,True,False,
+Tecnologías,2021,8,8787,3436,False,True,True,False,
+Tecnologías,2022,6,5191,2484,False,True,True,False,
+Tecnologías,2023,8,8614,3506,False,True,True,False,
+Tecnologías,2024,4,3277,1818,False,False,True,False,
+Tecnologías,2025,11,12075,4437,False,True,True,False,
+Tecnologías,2026,3,3122,1690,False,False,True,False,

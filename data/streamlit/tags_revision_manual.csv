@@ -1,0 +1,6 @@
+Tag Variante,Frecuencia Variante,Tag Canónico,Frecuencia Canónico,Similitud Léxica,Es Diacrítico,Mismo Lema,Similitud Semántica
+Paternidades,1,Maternidades,7,0.917,False,False,0.918
+Discursos Odio,1,Discursos De Odio,16,0.903,False,False,0.808
+Arte,5,Artes,17,0.889,False,False,0.97
+Neoliberalismo,6,Liberalismo,22,0.88,False,False,0.721
+Madres De Plaza De Mayo,3,Abuelas De Plaza De Mayo,6,0.851,False,False,0.896

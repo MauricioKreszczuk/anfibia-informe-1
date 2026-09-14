@@ -1,0 +1,27 @@
+Tag Variante,Frecuencia Variante,Tag Canónico,Frecuencia Canónico,Similitud Léxica,Es Diacrítico,Mismo Lema,Similitud Semántica
+Religion,6,Religión,8,1.0,True,False,1.0
+Mexico,1,México,8,1.0,True,False,1.0
+America Latina,2,América Latina,5,1.0,True,False,1.0
+Iran,1,Irán,3,1.0,True,False,1.0
+Nicolas Maduro,3,Nicolás Maduro,1,1.0,True,False,1.0
+El Ultimo Rincon De Sudamerica,1,El Último Rincón De Sudamérica,3,1.0,True,False,1.0
+Ley Omnibus,2,Ley Ómnibus,2,1.0,True,False,1.0
+Politica Exterior,1,Política Exterior,1,1.0,True,False,1.0
+#Eaaf,1,Eaaf,1,1.0,True,False,1.0
+Derecha,2,Derechas,114,1.0,False,True,1.0
+Violencia,7,Violencias,18,1.0,False,True,1.0
+Femicidio,2,Femicidios,7,1.0,False,True,1.0
+Deudas,1,Deuda,6,1.0,False,True,1.0
+Tecnologías,3,Tecnología,6,1.0,False,True,1.0
+Incendio,1,Incendios,5,1.0,False,True,1.0
+Culturas,1,Cultura,5,1.0,False,True,1.0
+Cuerpo,1,Cuerpos,4,1.0,False,True,1.0
+Crónicas,1,Crónica,4,1.0,False,True,1.0
+Adolescencias,2,Adolescencia,3,1.0,False,True,1.0
+Océano,1,Océanos,2,1.0,False,True,1.0
+Género,1,Géneros,2,1.0,False,True,1.0
+Varones Gay,1,Varones Gays,1,1.0,False,True,1.0
+Futuro,1,Futuros,1,1.0,False,True,1.0
+Inundaciones,1,Inundación,1,1.0,False,True,1.0
+Crisiis Climática,1,Crisis Climática,11,0.97,False,False,0.993
+Laboratorio Periodismo Performàtico,1,Laboratorio De Periodismo Performático,2,0.959,False,False,0.988
