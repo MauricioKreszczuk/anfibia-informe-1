@@ -16,6 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 DATA_DIR = BASE_DIR / "data" / "streamlit"
 GRAFICOS_DIR = DATA_DIR / "graficos"
 
+
 ## ==========================================
 ## CARGA DE DATOS CACHEADA
 ## ==========================================
@@ -27,28 +28,21 @@ def load_data():
     tags_solapamiento = pd.read_csv(DATA_DIR / "tags_solapamiento_prob_topicos.csv")
     tags_auto = pd.read_csv(DATA_DIR / "tags_fusiones_automaticas.csv")
     tags_manual = pd.read_csv(DATA_DIR / "tags_revision_manual.csv")
+    df_titulos = pd.read_csv(DATA_DIR / "diccionario_titulos_url.csv")
+    
+    # Casteo explícito de tipos antes del cruce
+    df_titulos["ID"] = df_titulos["ID"].astype(int)
+    df_tags_cat["ID"] = df_tags_cat["ID"].astype(int)
+    
+    df_tags_cat = df_tags_cat.merge(df_titulos, on="ID", how="left")
+    
+    # Fallback por si algún registro no tenía source_url
+    if "source_url" not in df_tags_cat.columns:
+        df_tags_cat["source_url"] = "https://revistaanfibia.com/?p=" + df_tags_cat["ID"].astype(str)
+        
     return tags_global, df_tags_cat, df_tags_top, tags_solapamiento, tags_auto, tags_manual
 
 (tags_global, df_tags_cat, df_tags_top, tags_solapamiento, tags_auto, tags_manual) = load_data()
-
-# Leemos directamente el mapa ID -> Título y URL desde el corpus procesado
-_path_corpus = BASE_DIR / "data" / "processed" / "corpus_anfibia_lematizado.csv"
-
-# Solo leemos ID, title_text y source_url (tarda menos de 0.1s porque filtra columnas)
-_cols_disponibles = pd.read_csv(_path_corpus, nrows=1).columns.tolist()
-_cols_a_cargar = ["ID", "title_text"] + (["source_url"] if "source_url" in _cols_disponibles else [])
-
-_df_titulos = pd.read_csv(_path_corpus, usecols=_cols_a_cargar).drop_duplicates(subset=["ID"])
-
-# Aseguramos el mismo tipo de dato para que el merge sea exacto
-_df_titulos["ID"] = _df_titulos["ID"].astype(int)
-df_tags_cat["ID"] = df_tags_cat["ID"].astype(int)
-
-df_tags_cat = df_tags_cat.merge(_df_titulos, on="ID", how="left")
-
-# Si source_url no estaba en el corpus, usamos la URL canónica de WordPress
-if "source_url" not in df_tags_cat.columns:
-    df_tags_cat["source_url"] = "https://revistaanfibia.com/?p=" + df_tags_cat["ID"].astype(str)
 
 def cargar_html(ruta, height=750):
     if ruta.exists():

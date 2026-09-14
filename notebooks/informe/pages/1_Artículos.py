@@ -281,7 +281,7 @@ Con ellas podremos visualizar qué palabras son las más comunes en cada categor
 """)
 
 st.caption("""
-Nota: Únicamente creamos nubes para aquellas ventanas de tiempo que alcancen al menos 20 artículos publicados, 5.000 tokens y 80 términos únicos. Por ello, algunas combinaciónes de Categoría-Año no existen.
+Nota: Únicamente creamos nubes para aquellas ventanas de tiempo que alcancen al menos 20 artículos publicados. Por ello, algunas combinaciónes de Categoría-Año no existen.
 """)
 
 col_ctrl1, col_ctrl2 = st.columns(2)
@@ -315,27 +315,38 @@ with col_ctrl2:
         ]["period"].unique())
         periodo_elegido = st.selectbox("Período:", periodos_disp, key="per_temp")
 
+# --- Directorios de imágenes locales a data/streamlit ---
+DIR_WC_HIST = DATA_DIR / "wordclouds_by_category_lematizado"
+DIR_WC_TEMP = DATA_DIR / "wordclouds_by_category_period"
+
 # --- Renderizado de Imágenes Alineadas ---
 col_img1, col_img2 = st.columns(2)
 
 with col_img1:
     if cat_elegida:
-        ruta_img = BASE_DIR / wc_idx[wc_idx["category"] == cat_elegida]["path"].values[0]
+        fila_hist = wc_idx[wc_idx["category"] == cat_elegida]
+        # Soporta tanto la columna nueva 'filename' como la vieja 'path'
+        nombre_archivo = fila_hist["filename"].values[0] if "filename" in fila_hist.columns else Path(fila_hist["path"].values[0]).name
+        ruta_img = DIR_WC_HIST / nombre_archivo
+
         if ruta_img.exists():
             st.image(Image.open(ruta_img), use_container_width=True)
         else:
-            st.error("Imagen no encontrada.")
+            st.error(f"Imagen no encontrada: {nombre_archivo}")
 
 with col_img2:
     if cat_temp_elegida and periodo_elegido:
-        ruta_img_t = BASE_DIR / wc_temp_idx[
+        fila_temp = wc_temp_idx[
             (wc_temp_idx["category"] == cat_temp_elegida) & 
             (wc_temp_idx["period"] == periodo_elegido)
-        ]["path"].values[0]
+        ]
+        nombre_archivo_t = fila_temp["filename"].values[0] if "filename" in fila_temp.columns else Path(fila_temp["path"].values[0]).name
+        ruta_img_t = DIR_WC_TEMP / nombre_archivo_t
+
         if ruta_img_t.exists():
             st.image(Image.open(ruta_img_t), use_container_width=True)
         else:
-            st.error("Imagen no encontrada.")
+            st.error(f"Imagen no encontrada: {nombre_archivo_t}")
 
 st.divider()
 

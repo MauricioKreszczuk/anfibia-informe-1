@@ -1,10 +1,10 @@
-category,path
-Política y Economía,data/streamlit\wordclouds_by_category_lematizado\wordcloud_politica-y-economia.png
-Culturas,data/streamlit\wordclouds_by_category_lematizado\wordcloud_culturas.png
-Políticas de géneros,data/streamlit\wordclouds_by_category_lematizado\wordcloud_politicas-de-generos.png
-Otras,data/streamlit\wordclouds_by_category_lematizado\wordcloud_otras.png
-Salud,data/streamlit\wordclouds_by_category_lematizado\wordcloud_salud.png
-Ambiente,data/streamlit\wordclouds_by_category_lematizado\wordcloud_ambiente.png
-Tecnologías,data/streamlit\wordclouds_by_category_lematizado\wordcloud_tecnologias.png
-Educación,data/streamlit\wordclouds_by_category_lematizado\wordcloud_educacion.png
-Amor y sexo,data/streamlit\wordclouds_by_category_lematizado\wordcloud_amor-y-sexo.png
+category,path,filename
+Política y Economía,outputs\wordclouds_by_category_lematizado\wordcloud_politica-y-economia.png,wordcloud_politica-y-economia.png
+Culturas,outputs\wordclouds_by_category_lematizado\wordcloud_culturas.png,wordcloud_culturas.png
+Políticas de géneros,outputs\wordclouds_by_category_lematizado\wordcloud_politicas-de-generos.png,wordcloud_politicas-de-generos.png
+Otras,outputs\wordclouds_by_category_lematizado\wordcloud_otras.png,wordcloud_otras.png
+Salud,outputs\wordclouds_by_category_lematizado\wordcloud_salud.png,wordcloud_salud.png
+Ambiente,outputs\wordclouds_by_category_lematizado\wordcloud_ambiente.png,wordcloud_ambiente.png
+Tecnologías,outputs\wordclouds_by_category_lematizado\wordcloud_tecnologias.png,wordcloud_tecnologias.png
+Educación,outputs\wordclouds_by_category_lematizado\wordcloud_educacion.png,wordcloud_educacion.png
+Amor y sexo,outputs\wordclouds_by_category_lematizado\wordcloud_amor-y-sexo.png,wordcloud_amor-y-sexo.png
