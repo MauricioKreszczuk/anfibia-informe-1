@@ -21,9 +21,21 @@ DATA_DIR = BASE_DIR / "data" / "streamlit"
 def load_data():
     df_rec = pd.read_csv(DATA_DIR / "df_recomendador_base.csv")
     df_rec["post_date"] = pd.to_datetime(df_rec["post_date"], errors="coerce")
+    
+    # Cargamos el diccionario para extraer las URLs reales
+    df_titulos = pd.read_csv(DATA_DIR / "diccionario_titulos_url.csv")
+    df_titulos["ID"] = df_titulos["ID"].astype(int)
+    df_rec["doc_id"] = df_rec["doc_id"].astype(int)
+    
+    df_rec["source_url"] = df_titulos['source_url']
+    
+    # # Fallback por si algún registro no tuviera coincidencia
+    # df_rec["source_url"] = df_rec["source_url"].fillna("https://revistaanfibia.com/?p=" + df_rec["doc_id"].astype(str))
+    
     matriz_dist = np.load(DATA_DIR / "doc_topic_dist.npy")
     return df_rec, matriz_dist
 
+# Ejecución y asignación obligatoria de la carga
 df_rec, matriz_dist = load_data()
 
 # ==========================================
@@ -43,6 +55,9 @@ with st.expander("Metodología: ¿Cómo calcula la similitud?"):
 opciones_articulos = df_rec["doc_id"].astype(str) + " - " + df_rec["title_text"]
 articulo_sel = st.selectbox("Buscar artículo por ID o Título:", opciones_articulos)
 target_id = int(articulo_sel.split(" - ")[0])
+
+# Datos del artículo elegido
+target_row = df_rec[df_rec["doc_id"] == target_id].iloc[0]
 
 def graficar_constelacion(target_id, recomendados_ids, df_completo, col_x, col_y, titulo, opacidad_fondo=0.45):
     df_resto = df_completo[~df_completo["doc_id"].isin([target_id] + recomendados_ids)]
@@ -64,13 +79,12 @@ def graficar_constelacion(target_id, recomendados_ids, df_completo, col_x, col_y
         hovertemplate="<b>%{customdata[0]}</b><br><b>%{customdata[1]}</b><br><i>%{customdata[2]}</i><extra></extra>"
     )
     
-    # 2. CAPA VISUAL (WebGL) - Colores base que se pintan POR ENCIMA del fondo
+    # 2. CAPA VISUAL (WebGL)
     fig.add_trace(go.Scattergl(
         x=df_rec_local[col_x], 
         y=df_rec_local[col_y], 
         mode="markers", 
         name="Recomendados", 
-        # Tu estilo original intacto:
         marker=dict(symbol="circle", size=14, line=dict(width=2, color="#1f77b4")),
         hoverinfo="skip"
     ))
@@ -80,18 +94,16 @@ def graficar_constelacion(target_id, recomendados_ids, df_completo, col_x, col_y
         y=df_target[col_y], 
         mode="markers", 
         name="Original", 
-        # Solo relleno rojo (el borde se lo damos en la capa superior para evitar el bug)
         marker=dict(color="#d62728", size=18, symbol="diamond"), 
         hoverinfo="skip"
     ))
-
-    # 3. CAPA FANTASMA (SVG) - Atrapa el mouse y dibuja bordes problemáticos
+    
+    # 3. CAPA FANTASMA (SVG)
     fig.add_trace(go.Scatter(
         x=df_rec_local[col_x], 
         y=df_rec_local[col_y], 
         mode="markers", 
         showlegend=False, 
-        # Hitbox transparente un pelín más grande para facilitar el hover
         marker=dict(symbol="circle", size=18, color="rgba(0,0,0,0)"), 
         customdata=df_rec_local[["title_text", "topic_label", "tagline"]], 
         hovertemplate="<b>Recomendación</b><br><b>Tópico:</b> %{customdata[1]}<br><b>%{customdata[0]}</b><br><i>%{customdata[2]}</i><extra></extra>"
@@ -102,7 +114,6 @@ def graficar_constelacion(target_id, recomendados_ids, df_completo, col_x, col_y
         y=df_target[col_y], 
         mode="markers", 
         showlegend=False, 
-        # Hitbox transparente que ADEMÁS dibuja el borde negro limpio del diamante
         marker=dict(color="rgba(0,0,0,0)", size=18, symbol="diamond", line=dict(width=2, color="black")), 
         customdata=df_target[["title_text", "topic_label", "tagline"]], 
         hovertemplate="<b>ORIGINAL</b><br><b>Tópico:</b> %{customdata[1]}<br><b>%{customdata[0]}</b><br><i>%{customdata[2]}</i><extra></extra>"
@@ -134,7 +145,7 @@ def graficar_temporal(target_id, similitudes_array, top_n=100):
         y=df_resto["Similitud"], 
         mode="markers", 
         name="Rank 11-100", 
-        marker=dict(color="#ab63fa", size=8, opacity=0.5), # Opacidad fija para el temporal
+        marker=dict(color="#ab63fa", size=8, opacity=0.5),
         customdata=df_resto[["title_text", "Rank", "topic_label"]], 
         hovertemplate="<b>Rank #%{customdata[1]}</b><br>%{customdata[0]}<extra></extra>"
     ))
@@ -169,6 +180,16 @@ def graficar_temporal(target_id, similitudes_array, top_n=100):
 #######################
 
 if target_id is not None:
+    url_articulo = target_row.get("source_url")
+    if pd.isna(url_articulo) or not isinstance(url_articulo, str) or not url_articulo.startswith("http"):
+        url_articulo = f"https://revistaanfibia.com/?p={target_id}"
+
+    #st.markdown(f"**Artículo seleccionado:** {target_row['title_text']}")
+    if pd.notna(target_row['tagline']) and str(target_row['tagline']).strip():
+        st.caption(f"_{target_row['tagline']}_")
+    st.link_button("Ver artículo original ↗", url_articulo)
+    st.divider()
+
     ############ TOP 10 ###########################
     target_idx = df_rec[df_rec["doc_id"] == target_id].index[0]
     target_vector = matriz_dist[target_idx].reshape(1, -1)
@@ -180,18 +201,31 @@ if target_id is not None:
     
     st.write("### Top 10 Recomendaciones")
     st.caption("Los artículos con mayor similitud a la nota original.")
-    df_mostrar = df_rec.iloc[indices_top][["doc_id", "title_text", "topic_label", "post_date"]].copy()
+    
+    df_mostrar = df_rec.iloc[indices_top][["doc_id", "title_text", "topic_label", "post_date", "source_url"]].copy()
     df_mostrar["Similitud"] = sims[indices_top].round(4)
     
     df_mostrar = df_mostrar.rename(columns={
         "doc_id": "ID",
-        "title_text": "Titulo",
+        "title_text": "Título",
         "topic_label": "Tópico",
-        "post_date": "Publicación"
+        "post_date": "Publicación",
+        "source_url": "Enlace"
     })
     
-    st.dataframe(df_mostrar, use_container_width=True, hide_index=True)
-
+    st.dataframe(
+        df_mostrar,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "ID": st.column_config.NumberColumn("ID", format="%d", width="small", alignment="center"),
+            "Título": st.column_config.TextColumn("Título", width="large"),
+            "Tópico": st.column_config.TextColumn("Tópico", width="small"),
+            "Publicación": st.column_config.DatetimeColumn("Publicación", format="YYYY-MM-DD", width="small", alignment="center"),
+            "Similitud": st.column_config.ProgressColumn("Similitud", format="%.4f", min_value=0.0, max_value=1.0, width="small"),
+            "Enlace": st.column_config.LinkColumn("Enlace", display_text="Ver", width="small", alignment="center")
+        }
+    )
 
     ##### MAPAS DE TOPICOS ########################################
 
@@ -207,7 +241,7 @@ if target_id is not None:
         help="Bajá la opacidad si el enjambre de puntos te impide distinguir los artículos recomendados."
     )
     st.caption("Al pasar el cursor sobre los puntos, se muestran su nombre y Tagline." \
-                "  \nSeleccioná un área para hacer zoom y hacé doble clic sobre el gráfico para reestablecer la vista. Usá la leyenda de la derecha para encender, apagar o aislar Tópicos.")
+               "  \nSeleccioná un área para hacer zoom y hacé doble clic sobre el gráfico para reestablecer la vista. Usá la leyenda de la derecha para encender, apagar o aislar Tópicos.")
     st.caption("**1. Mapa Semántico:** La ubicación y agrupación de los artículos está basada en el vocabulario y las estructuras de los textos (Embeddings)." \
     "  \nPermite ver qué tan similares son los textos de los artículos recomendados.")
     st.plotly_chart(graficar_constelacion(target_id, recs_ids, df_rec, "umap_sem_x", "umap_sem_y", "Mapa Semántico", val_opacidad), use_container_width=True)
@@ -221,5 +255,4 @@ if target_id is not None:
     st.markdown("#### Distribución Temporal")
     st.write("Muestra en que momento se públicaron los artículos que estamos recomendando. Queriamos analizar si las recomendaciónes estan sesgadas por el tiempo.")
     
-    # Se llama sin el parámetro de opacidad, asumiendo su propio hardcode
     st.plotly_chart(graficar_temporal(target_id, sims), use_container_width=True)
